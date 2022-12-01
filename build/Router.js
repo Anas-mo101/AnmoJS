@@ -1,10 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const AppLocalStorage_1 = __importDefault(require("./AppLocalStorage"));
-class default_1 {
+import AppLocalStorage from "./AppLocalStorage";
+export default class {
     constructor() {
         var _a;
         this.routes = (_a = window.routes) !== null && _a !== void 0 ? _a : window.mainView;
@@ -32,10 +27,11 @@ class default_1 {
         }
     }
     async loadMainView(view) {
-        var _a;
-        document.querySelector("#main-content").replaceChildren();
+        var _a, _b;
+        const mainContainer = (_a = AppLocalStorage.getMainContainer()) !== null && _a !== void 0 ? _a : 'body';
+        document.querySelector(mainContainer).replaceChildren();
         const node = await view.getComponentHTML();
-        (_a = document.querySelector("#main-content")) === null || _a === void 0 ? void 0 : _a.append(node);
+        (_b = document.querySelector(mainContainer)) === null || _b === void 0 ? void 0 : _b.append(node);
     }
     pathToRegex(path) {
         return new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
@@ -66,9 +62,8 @@ class default_1 {
     }
     static navigateTo(url, params = null) {
         if (params)
-            AppLocalStorage_1.default.TemporaryData(params);
+            AppLocalStorage.TemporaryData(params);
         history.pushState(null, '', url);
         new this();
     }
 }
-exports.default = default_1;

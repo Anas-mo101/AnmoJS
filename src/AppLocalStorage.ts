@@ -26,6 +26,16 @@ export default class {
         return JSON.parse(localStorage.getItem('app-responsive-breakpoints') ?? '');
     }
 
+    //
+
+    static setMainContainer(container: string){
+        localStorage.setItem(`anmo-main-container`, container);
+    }
+
+    static getMainContainer(){
+        return localStorage.getItem(`anmo-main-container`);
+    }
+
     // cache temp. data between routes
 
     static TemporaryData(data: {key: string, value: any}){ //

@@ -1,10 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const ErrorComponent_js_1 = __importDefault(require("./utils/ErrorComponent.js"));
-class AbstractView {
+import ErrorComponent from "./utils/ErrorComponent.js";
+export default class AbstractView {
     constructor({ style = undefined } = {}) {
         this.id = AbstractView.generateID();
         this.mainCompnent = document.createElement('div');
@@ -52,7 +47,6 @@ class AbstractView {
         });
     }
     componentError(error = 'Error') {
-        return new ErrorComponent_js_1.default(error).getComponentHTML();
+        return new ErrorComponent(error).getComponentHTML();
     }
 }
-exports.default = AbstractView;

@@ -1,10 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const AppLocalStorage_js_1 = __importDefault(require("../AppLocalStorage.js"));
-class default_1 {
+import AppLocalStorage from "../AppLocalStorage.js";
+export default class {
     static isMobile() {
         return this.setByScreen(false, false, true);
     }
@@ -24,10 +19,10 @@ class default_1 {
         if (breakpoints.mobile >= breakpoints.tablet) {
             throw new Error('Mobile breakpoint must be smaller than tablet breakpoint');
         }
-        AppLocalStorage_js_1.default.setBreakPoints(breakpoints);
+        AppLocalStorage.setBreakPoints(breakpoints);
     }
     static setByScreen(desktop, tablet, mobile) {
-        let breakpoints = AppLocalStorage_js_1.default.getBreakPoints();
+        let breakpoints = AppLocalStorage.getBreakPoints();
         if (!(breakpoints === null || breakpoints === void 0 ? void 0 : breakpoints.mobile) || !(breakpoints === null || breakpoints === void 0 ? void 0 : breakpoints.tablet))
             throw new Error('Breakpoints not set');
         const mobileMediaQuery = window.matchMedia(`(max-width: ${breakpoints.mobile})`);
@@ -41,4 +36,3 @@ class default_1 {
         return desktop;
     }
 }
-exports.default = default_1;

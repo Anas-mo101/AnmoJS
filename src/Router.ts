@@ -36,9 +36,11 @@ export default class {
     }
 
     async loadMainView(view: AbstractView){
-        document.querySelector("#main-content")!.replaceChildren();
+        const mainContainer = AppLocalStorage.getMainContainer() ?? 'body';
+
+        document.querySelector(mainContainer)!.replaceChildren();
         const node = await view.getComponentHTML();
-        document.querySelector("#main-content")?.append(node);
+        document.querySelector(mainContainer)?.append(node);
     }
 
     pathToRegex(path: String){

@@ -6,7 +6,7 @@ import PopupIncubator from "./utils/PopupIncubator";
 import Responsiveness from "./utils/Responsiveness";
 
 
-export default{
+export default {
     Router,
     AppLocalStorage,
     AbstractView,
@@ -24,5 +24,8 @@ export default{
     },
     setBreakPoints: (breakPoints: {mobile: number, tablet: number}) => {
         AppLocalStorage.setBreakPoints(breakPoints);
+    },
+    setMainContainer: (container: string) => {
+        AppLocalStorage.setMainContainer(container);
     }
-}
+} 

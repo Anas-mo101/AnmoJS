@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const getFunctionContent = (func) => {
     const funcString = func.toString();
     return funcString.toString().slice(funcString.toString().indexOf("{") + 1, funcString.toString().lastIndexOf("}"));
@@ -80,4 +78,4 @@ const BuildElement = ({ tag, id, content = undefined, attributes = undefined, st
         mainComponent.addEventListener('change', (e) => onChange);
     return mainComponent;
 };
-exports.default = BuildElement;
+export default BuildElement;

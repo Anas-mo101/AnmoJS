@@ -41,7 +41,7 @@ export default class extends AbstractView {
         if (prev) prev.remove();
 
         const mainPopup = this.incubator();
-        document.querySelector("#main-content")!.append(mainPopup);
+        document.querySelector("body")!.append(mainPopup);
     }
 
     hidePopup() {
