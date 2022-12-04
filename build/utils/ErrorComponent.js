@@ -7,28 +7,30 @@ export default class ErrorComponent {
         try {
             return BuildElement({
                 tag: 'div',
-                attributes: [
-                    { attribute: 'class', value: ['bg-red-500 h-full items-center'] },
-                ],
+                style: {
+                    'height': '100%', 'background-color': 'rgb(239 68 68)', 'align-items': 'center'
+                },
                 content: [
                     BuildElement({
                         tag: 'div',
-                        attributes: [
-                            { attribute: 'class', value: ['text-lg text-black font-bold'] },
-                        ],
+                        style: {
+                            'font-size': '1.125rem', 'line-height': '1.75rem', 'color': '#000000', 'font-weight': 'bold',
+                        },
                         content: [
                             BuildElement({
                                 tag: 'h1',
-                                attributes: [
-                                    { attribute: 'class', value: ['text-lg text-center text-black font-bold'] },
-                                ],
+                                style: {
+                                    'font-size': '1.125rem', 'line-height': '1.75rem', 'color': '#000000',
+                                    'font-weight': 'bold', 'text-align': 'center'
+                                },
                                 content: `Something went wrong !`,
                             }),
                             !this.error ? null : BuildElement({
                                 tag: 'h1',
-                                attributes: [
-                                    { attribute: 'class', value: ['text-sm text-center text-black font-bold'] },
-                                ],
+                                style: {
+                                    'font-size': '0.875rem', 'line-height': '1.25rem', 'color': '#000000',
+                                    'font-weight': 'bold', 'text-align': 'center'
+                                },
                                 content: `Error: ` + this.error,
                             })
                         ]

@@ -10,20 +10,29 @@ export default class extends AbstractView {
         return BuildElement({
             tag: 'div',
             id: this.id,
-            attributes: [
-                { attribute: 'class', value: ['fixed z-50 bg-neutral-500 opacity-60 top-0 left-0 h-full w-full justify-center items-center'] }
-            ],
+            style: {
+                'z-index': '50',
+                'position': 'fixed',
+                'background-color': 'rgb(115 115 115)',
+                'top': '0',
+                'left': '0',
+                'height': '100%',
+                'width': '100%',
+                'justify-content': 'center',
+                'align-items': 'center',
+            },
             content: BuildElement({
                 tag: 'div',
                 attributes: [
-                    {
-                        attribute: 'class',
-                        value: [
-                            'flex justify-center items-center h-full w-full',
-                            'app-popup-main-incubator'
-                        ]
-                    }
+                    { attribute: 'class', value: ['app-popup-main-incubator'] }
                 ],
+                style: {
+                    'position': 'fixed',
+                    'justify-content': 'center',
+                    'align-items': 'center',
+                    'height': '100%',
+                    'width': '100%',
+                },
                 content: this.popup
             })
         });

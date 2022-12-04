@@ -29,7 +29,7 @@ export default class {
                 history.pushState(null, '', this.routes[0].path);
             }
             
-            this.loadMainView( new this.match.route.view() );
+            this.loadMainView( this.match.route.view );
         }else{
             this.loadMainView(this.routes);
         }
