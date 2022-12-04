@@ -1,4 +1,4 @@
-import AppLocalStorage from "./AppLocalStorage";
+import AppLocalStorage from "./AppLocalStorage.js";
 export default class {
     constructor() {
         var _a;
@@ -26,11 +26,11 @@ export default class {
             this.loadMainView(this.routes);
         }
     }
-    async loadMainView(view) {
+    loadMainView(view) {
         var _a, _b;
         const mainContainer = (_a = AppLocalStorage.getMainContainer()) !== null && _a !== void 0 ? _a : 'body';
         document.querySelector(mainContainer).replaceChildren();
-        const node = await view.getComponentHTML();
+        const node = new view().getComponentHTML();
         (_b = document.querySelector(mainContainer)) === null || _b === void 0 ? void 0 : _b.append(node);
     }
     pathToRegex(path) {

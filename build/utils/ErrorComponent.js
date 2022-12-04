@@ -1,4 +1,4 @@
-import BuildElement from '../BuildElement';
+import BuildElement from '../BuildElement.js';
 export default class ErrorComponent {
     constructor(error) {
         this.error = error;

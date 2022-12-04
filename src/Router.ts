@@ -1,5 +1,5 @@
-import AbstractView from "./AbstractView";
-import AppLocalStorage from "./AppLocalStorage";
+import AbstractView from "./AbstractView.js";
+import AppLocalStorage from "./AppLocalStorage.js";
 
 export default class {
 
@@ -35,11 +35,12 @@ export default class {
         }
     }
 
-    async loadMainView(view: AbstractView){
+    loadMainView(view: AbstractView){
         const mainContainer = AppLocalStorage.getMainContainer() ?? 'body';
 
         document.querySelector(mainContainer)!.replaceChildren();
-        const node = await view.getComponentHTML();
+        // @ts-ignore
+        const node = new view().getComponentHTML();
         document.querySelector(mainContainer)?.append(node);
     }
 

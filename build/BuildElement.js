@@ -68,14 +68,14 @@ const BuildElement = ({ tag, id, content = undefined, attributes = undefined, st
     }
     if (tag === 'input' || tag === 'textarea') {
         if (onInput)
-            mainComponent.addEventListener('input', (e) => onInput);
+            mainComponent.addEventListener('input', (e) => onInput());
         if (onSubmit)
-            mainComponent.addEventListener("keyup", ({ key }) => { var _a; return (_a = key === "Enter") !== null && _a !== void 0 ? _a : onSubmit; });
+            mainComponent.addEventListener("keyup", ({ key }) => { var _a; return (_a = key === "Enter") !== null && _a !== void 0 ? _a : onSubmit(); });
     }
     if (onTap)
-        mainComponent.addEventListener("click", (e) => onTap);
+        mainComponent.addEventListener("click", (e) => onTap());
     if (onChange)
-        mainComponent.addEventListener('change', (e) => onChange);
+        mainComponent.addEventListener('change', (e) => onChange(e.target.value));
     return mainComponent;
 };
 export default BuildElement;

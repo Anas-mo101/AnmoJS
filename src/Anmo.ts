@@ -1,9 +1,9 @@
-import Router from "./Router";
-import AppLocalStorage from "./AppLocalStorage";
-import BuildElement from "./BuildElement";
-import AbstractView from "./AbstractView";
-import PopupIncubator from "./utils/PopupIncubator";
-import Responsiveness from "./utils/Responsiveness";
+import Router from "./Router.js";
+import AppLocalStorage from "./AppLocalStorage.js";
+import BuildElement from "./BuildElement.js";
+import AbstractView from "./AbstractView.js";
+import PopupIncubator from "./utils/PopupIncubator.js";
+import Responsiveness from "./utils/Responsiveness.js";
 
 
 export default {
