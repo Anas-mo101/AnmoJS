@@ -26,12 +26,17 @@ in Frontpage.js, the basic code boilerplate is the following.
 	    }
 
 	    getComponentHTML() {
-	        try {
-		        // build page/component here 
+	        try {		     
+			return Anmo.BuildElement ({	//creates a new h1 element
+				tag: 'h1',    
+				style: {
+				  'color': 'blue';	// styles elements using css
+				},
+				content: 'Hello World !',	// element's content
+			});
 
 	        } catch (error) {
 	            return this.componentError(error);
 	        }
-	        return this.getComponent_();
 	    }
     }
