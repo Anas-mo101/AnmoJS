@@ -30,7 +30,7 @@ in Frontpage.js, the basic code boilerplate is the following.
 			return Anmo.BuildElement ({	//creates a new h1 element
 				tag: 'h1',    
 				style: {
-				  'color': 'blue';	// styles elements using css
+				 'color': 'blue',	// styles elements using css
 				},
 				content: 'Hello World !',	// element's content
 			});
