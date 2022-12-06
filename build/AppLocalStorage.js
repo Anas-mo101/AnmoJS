@@ -24,7 +24,7 @@ export default class {
     static clearTemporaryData(key) {
         localStorage.removeItem(`anmo-edit-project-${key}`);
     }
-    static getProjectPassedData(key) {
+    static getTemporaryData(key) {
         const data = localStorage.getItem(`anmo-edit-project-${key}`);
         this.clearTemporaryData(key);
         return data;

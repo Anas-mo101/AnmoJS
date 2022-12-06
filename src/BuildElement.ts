@@ -103,12 +103,16 @@ const BuildElement = (
     if(tag === 'input' || tag === 'textarea'){
         if(onInput) mainComponent.addEventListener('input', (e:Event) => onInput())
 
-        if (onSubmit) mainComponent.addEventListener("keyup", ({key}) => key === "Enter" ?? onSubmit())
+        if (onSubmit) mainComponent.addEventListener("keyup", ({key}) => {
+            if(key === "Enter"){
+                onSubmit()
+            }
+        });
     }
 
     if(onTap) mainComponent.addEventListener("click", (e:Event) => onTap());
 
-    if(onChange) mainComponent.addEventListener('change', (e:Event) => onChange((e.target as HTMLInputElement).value));
+    if(onChange) mainComponent.addEventListener('change', (e:Event) => onChange(e));
 
     return mainComponent;
 }
