@@ -16,6 +16,7 @@ export default class extends AbstractView {
             tag: 'div',
             id: this.id,
             style: {
+                'display': 'flex',
                 'z-index':'50',
                 'position': 'fixed',
                 'background-color': 'rgb(115 115 115)',
@@ -25,6 +26,7 @@ export default class extends AbstractView {
                 'width': '100%',
                 'justify-content': 'center',
                 'align-items': 'center',
+                'opacity': '0.7'
             },
             content: BuildElement({
                 tag: 'div',
@@ -33,6 +35,7 @@ export default class extends AbstractView {
                 ],
                 style: {
                     'position': 'fixed',
+                    'display': 'flex',
                     'justify-content': 'center',
                     'align-items': 'center',
                     'height': '100%',

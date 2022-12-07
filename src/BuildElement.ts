@@ -102,7 +102,10 @@ const BuildElement = (
 
     if(tag === 'input' || tag === 'textarea'){
         if(onInput) mainComponent.addEventListener('input', (e:Event) => onInput())
+    }
 
+
+    if(tag === 'input'){
         if (onSubmit) mainComponent.addEventListener("keyup", ({key}) => {
             if(key === "Enter"){
                 onSubmit()
