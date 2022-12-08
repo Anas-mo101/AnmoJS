@@ -10,6 +10,9 @@ export default class extends AbstractView {
         return BuildElement({
             tag: 'div',
             id: this.id,
+            attributes: [
+                { attribute: 'class', value: ['app-popup-main-incubator'] }
+            ],
             style: {
                 'display': 'flex',
                 'z-index': '50',
@@ -25,9 +28,6 @@ export default class extends AbstractView {
             },
             content: BuildElement({
                 tag: 'div',
-                attributes: [
-                    { attribute: 'class', value: ['app-popup-main-incubator'] }
-                ],
                 style: {
                     'position': 'fixed',
                     'display': 'flex',
