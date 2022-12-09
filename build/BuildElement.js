@@ -68,7 +68,7 @@ const BuildElement = ({ tag, id, content = undefined, attributes = undefined, st
     }
     if (tag === 'input' || tag === 'textarea') {
         if (onInput)
-            mainComponent.addEventListener('input', (e) => onInput());
+            mainComponent.addEventListener('input', (e) => onInput(e));
     }
     if (tag === 'input') {
         if (onSubmit)
@@ -79,7 +79,7 @@ const BuildElement = ({ tag, id, content = undefined, attributes = undefined, st
             });
     }
     if (onTap)
-        mainComponent.addEventListener("click", (e) => onTap());
+        mainComponent.addEventListener("click", (e) => onTap(e));
     if (onChange)
         mainComponent.addEventListener('change', (e) => onChange(e));
     return mainComponent;

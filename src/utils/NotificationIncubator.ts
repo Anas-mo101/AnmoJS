@@ -33,15 +33,17 @@ const notificationPosition = {
 
 
 export default class extends AbstractView {
-    notification: AbstractView | undefined;
+    notification: HTMLElement | undefined;
     displayTime: number;
-    displayPosition: keyof typeof notificationPosition;
+    displayPosition: keyof typeof notificationPosition; 
+    animation: boolean;
 
-    constructor(displayTime = 5000, displayPosition = 'topRight' as keyof typeof notificationPosition) {
+    constructor(displayTime = 5000, displayPosition = 'topRight' as keyof typeof notificationPosition, animation = true) {
         super();
 
         this.displayTime = displayTime;
         this.displayPosition = displayPosition;
+        this.animation = animation;
     }
     
     incubator() {
@@ -68,14 +70,37 @@ export default class extends AbstractView {
         });
     }
 
-    displaynotification(notification: AbstractView) {
+    displaynotification(notification: HTMLElement) {
         this.notification = notification;
+
+        if (this.animation) {
+            var startTime = Date.now();
+            this.notification!.style.transform = 'translate(0%, -100%)';
+        }
 
         const prev = document.querySelector(".app-notification-main-incubator");
         if (prev) prev.remove();
 
         const mainnotification = this.incubator();
         document.querySelector("body")!.append(mainnotification);
+
+        if (this.animation) {
+            const speedFactor = 2;
+
+            const animateNotification = () => {
+                let time = Date.now() - startTime;
+        
+                let translateY = -100 + time / speedFactor;
+        
+                this.notification!.style.transform = 'translate(0%, ' + translateY + '%)';
+                
+                if (time < 100 * speedFactor) {
+                    requestAnimationFrame(animateNotification);
+                }
+            }
+        
+            requestAnimationFrame(animateNotification);
+        }
 
         if(this.displayTime !== 0){
             setTimeout(() => this.hidenotification(), this.displayTime );
