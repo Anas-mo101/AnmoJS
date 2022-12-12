@@ -4,15 +4,15 @@ import BuildElement from '../BuildElement.js';
 
 const notificationPosition = {
     'topRight': {
-        'top': '15%',
+        'top': '10%',
         'right': '5%',
     },
     'topLeft': {
-        'top': '15%',
+        'top': '10%',
         'left': '5%',
     },
     'topCenter': {
-        'top': '15%',
+        'top': '10%',
         'left': '0',
         'right': '0',
     },
@@ -25,7 +25,7 @@ const notificationPosition = {
         'left': '5%',
     },
     'bottomCenter': {
-        'bottom': '15%',
+        'bottom': '10%',
         'left': '0',
         'right': '0',
     },
@@ -51,7 +51,7 @@ export default class extends AbstractView {
 
         let styleNotification = {
             'z-index': '50',
-            'position': 'absolute',
+            'position': 'fixed',
             'display': 'flex',
             'justify-content': 'center',
             'align-items': 'center',

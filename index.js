@@ -53,5 +53,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Serving build on port ${port}`)
+    console.log(`Serving build on port http://localhost:${port}`)
 })
