@@ -55,9 +55,8 @@ export default class extends AbstractView {
             'display': 'flex',
             'justify-content': 'center',
             'align-items': 'center',
+            ...notificationPosition[this.displayPosition]
         };
-
-        styleNotification = { ...styleNotification, ...notificationPosition[this.displayPosition] }; 
 
         return BuildElement({
             tag: 'div',
