@@ -5,6 +5,7 @@ interface BuildElementInterface {
     attributes?: [{value: string[], attribute: string}], 
     style?: Object,
     onTap?: Function,
+    onContextMenu?: Function,
     onChange?: Function,
     onInput?: Function,
     onSubmit?: Function,
@@ -33,6 +34,7 @@ const BuildElement = (
         attributes = undefined,
         style = undefined,
         onTap = undefined,
+        onContextMenu = undefined,
         onChange = undefined,
         onInput = undefined,
         onSubmit = undefined,
@@ -114,6 +116,8 @@ const BuildElement = (
     }
 
     if(onTap) mainComponent.addEventListener("click", (e:Event) => onTap(e));
+
+    if(onContextMenu) mainComponent.addEventListener("contextmenu", (e:Event) => onContextMenu(e));
 
     if(onChange) mainComponent.addEventListener('change', (e:Event) => onChange(e));
 
