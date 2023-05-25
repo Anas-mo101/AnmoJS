@@ -21,7 +21,7 @@ in Frontpage.js, the basic code boilerplate is the following.
 
     export default class extends Anmo.AbstractView {
 	    constructor() {
-	       
+	       this.super();
 	        this.setTitle("Demo Project");
 	    }
 
