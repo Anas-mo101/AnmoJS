@@ -1,4 +1,5 @@
 import AbstractView from '../AbstractView.js';
+import AppLocalStorage from '../AppLocalStorage.js';
 import BuildElement from '../BuildElement.js';
 
 
@@ -6,11 +7,13 @@ export default class extends AbstractView {
     popup: HTMLElement | undefined;
     dismissable: boolean;
     animation: boolean;
+    fadeBackground: boolean;
 
-    constructor(dismissable = true, animation = true) {
+    constructor(dismissable = true, animation = true, fadeBackground = true) {
         super();
         this.dismissable = dismissable;
         this.animation = animation;
+        this.fadeBackground = fadeBackground;
     }
     
     incubator() {
@@ -40,7 +43,7 @@ export default class extends AbstractView {
                 'display': 'flex',
                 'z-index':'50',
                 'position': 'fixed',
-                'background-color': 'rgb(115 115 115 / 50%)',
+                'background-color': this.fadeBackground ? `rgb(115 115 115 / 50%)` : 'transparent',
                 'top': '0',
                 'left': '0',
                 'height': '100%',
@@ -75,7 +78,8 @@ export default class extends AbstractView {
         if (prev) prev.remove();
 
         const mainPopup = this.incubator();
-        document.querySelector("body")!.append(mainPopup);
+        const mainContainer = AppLocalStorage.getMainContainer() ?? 'body';
+        document.querySelector(mainContainer)!.append(mainPopup);
 
         if (this.animation) {
 

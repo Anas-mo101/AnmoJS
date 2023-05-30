@@ -30,14 +30,20 @@ export default class AbstractView {
     }
 
     async update(){
+        // ensure that the component has an ID 
         if(!this.id) throw new Error('Component ID not found');    
 
+        // get the current node
         const current_node = document.getElementById(this.id);
         
+        // if the node is not found, return
         if(!current_node) return;
 
+        // create an updated component
         this.mainCompnent = document.createElement('div');
         const node = await this.getComponentHTML(); 
+
+        // replace the current node with the updated component
         current_node.replaceWith(node);
     }
 
